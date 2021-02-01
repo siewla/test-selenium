@@ -1,0 +1,160 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-01-31T16:21:31.854Z",
+    "end": "2021-01-31T16:21:40.615Z",
+    "duration": 8761,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a5738a13-020b-4b00-80b9-02153d5c27d8",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+          "title": "Suite",
+          "fullFile": "/Users/siewlapang/Desktop/test-selenium/src/test/test.ts",
+          "file": "/src/test/test.ts",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook: Before in \"Suite\"",
+              "fullTitle": "Suite \"before all\" hook: Before in \"Suite\"",
+              "timedOut": false,
+              "duration": 4,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n        return __generator(this, function (_a) {\n            driver = new selenium_webdriver_1.Builder().forBrowser('chrome').build();\n            return [2 /*return*/];\n        });\n    });",
+              "err": {},
+              "uuid": "2868fd5a-a2f0-4b9b-b6ce-3f90202a0a54",
+              "parentUUID": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook: After in \"Suite\"",
+              "fullTitle": "Suite \"after all\" hook: After in \"Suite\"",
+              "timedOut": false,
+              "duration": 53,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n        return __generator(this, function (_a) {\n            switch (_a.label) {\n                case 0: return [4 /*yield*/, driver.quit()];\n                case 1:\n                    _a.sent();\n                    return [2 /*return*/];\n            }\n        });\n    });",
+              "err": {},
+              "uuid": "738313fd-69f4-4c98-a693-832d71562184",
+              "parentUUID": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Open google and verify it is opened",
+              "fullTitle": "Suite Open google and verify it is opened",
+              "timedOut": false,
+              "duration": 2771,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n        var currentUrl;\n        return __generator(this, function (_a) {\n            switch (_a.label) {\n                case 0: return [4 /*yield*/, driver.get('https://www.google.com')];\n                case 1:\n                    _a.sent();\n                    return [4 /*yield*/, driver.getCurrentUrl()];\n                case 2:\n                    currentUrl = _a.sent();\n                    assert.equal('https://www.google.com/', currentUrl, 'The google is not opened');\n                    return [2 /*return*/];\n            }\n        });\n    });",
+              "err": {},
+              "uuid": "8588c8a3-52f5-4382-869a-fb459c624d4e",
+              "parentUUID": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Open  youtube and verify it is opened",
+              "fullTitle": "Suite Open  youtube and verify it is opened",
+              "timedOut": false,
+              "duration": 5905,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n        var currentUrl;\n        return __generator(this, function (_a) {\n            switch (_a.label) {\n                case 0: return [4 /*yield*/, driver.get('https://www.youtube.com')];\n                case 1:\n                    _a.sent();\n                    return [4 /*yield*/, driver.getCurrentUrl()];\n                case 2:\n                    currentUrl = _a.sent();\n                    assert.equal('https://www.youtube.com/', currentUrl, 'The youtube is not opened');\n                    return [2 /*return*/];\n            }\n        });\n    });",
+              "err": {},
+              "uuid": "a8ed18e0-d5fb-41b7-82b7-42bbfb0b2deb",
+              "parentUUID": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8588c8a3-52f5-4382-869a-fb459c624d4e",
+            "a8ed18e0-d5fb-41b7-82b7-42bbfb0b2deb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8676,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 90000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 90000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.2.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "ReportDirectory",
+        "": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Developing an e2e automation test suite through a hands-on project using Selenium",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register  --timeout 90000 --exit  -R mochawesome --reporter-options reportDir=ReportDirectory, reportFilename=DemoReport 'src/test/*.ts'"
   },
   "repository": {
     "type": "git",
