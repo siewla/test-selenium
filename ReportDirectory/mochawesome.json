@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2021-01-31T16:21:31.854Z",
-    "end": "2021-01-31T16:21:40.615Z",
-    "duration": 8761,
+    "start": "2021-02-13T04:57:24.267Z",
+    "end": "2021-02-13T04:57:36.783Z",
+    "duration": 12516,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a5738a13-020b-4b00-80b9-02153d5c27d8",
+      "uuid": "e6274b2f-d7d7-44dc-b31e-3e9ae8daf6a0",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+          "uuid": "f3cef669-a798-4848-a272-da0bd886178e",
           "title": "Suite",
           "fullFile": "/Users/siewlapang/Desktop/test-selenium/src/test/test.ts",
           "file": "/src/test/test.ts",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook: Before in \"Suite\"",
               "fullTitle": "Suite \"before all\" hook: Before in \"Suite\"",
               "timedOut": false,
-              "duration": 4,
+              "duration": 3,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "return __awaiter(void 0, void 0, void 0, function () {\n        return __generator(this, function (_a) {\n            driver = new selenium_webdriver_1.Builder().forBrowser('chrome').build();\n            return [2 /*return*/];\n        });\n    });",
               "err": {},
-              "uuid": "2868fd5a-a2f0-4b9b-b6ce-3f90202a0a54",
-              "parentUUID": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+              "uuid": "dd40d2cb-d2b2-4bd6-b1c6-bc655f205faa",
+              "parentUUID": "f3cef669-a798-4848-a272-da0bd886178e",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook: After in \"Suite\"",
               "fullTitle": "Suite \"after all\" hook: After in \"Suite\"",
               "timedOut": false,
-              "duration": 53,
+              "duration": 54,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,28 +65,28 @@
               "context": null,
               "code": "return __awaiter(void 0, void 0, void 0, function () {\n        return __generator(this, function (_a) {\n            switch (_a.label) {\n                case 0: return [4 /*yield*/, driver.quit()];\n                case 1:\n                    _a.sent();\n                    return [2 /*return*/];\n            }\n        });\n    });",
               "err": {},
-              "uuid": "738313fd-69f4-4c98-a693-832d71562184",
-              "parentUUID": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+              "uuid": "71696b3e-3d02-4720-913c-74747f6be435",
+              "parentUUID": "f3cef669-a798-4848-a272-da0bd886178e",
               "isHook": true,
               "skipped": false
             }
           ],
           "tests": [
             {
-              "title": "Open google and verify it is opened",
-              "fullTitle": "Suite Open google and verify it is opened",
+              "title": "Open website and verify it is opened and redirect to login",
+              "fullTitle": "Suite Open website and verify it is opened and redirect to login",
               "timedOut": false,
-              "duration": 2771,
+              "duration": 6494,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "return __awaiter(void 0, void 0, void 0, function () {\n        var currentUrl;\n        return __generator(this, function (_a) {\n            switch (_a.label) {\n                case 0: return [4 /*yield*/, driver.get('https://www.google.com')];\n                case 1:\n                    _a.sent();\n                    return [4 /*yield*/, driver.getCurrentUrl()];\n                case 2:\n                    currentUrl = _a.sent();\n                    assert.equal('https://www.google.com/', currentUrl, 'The google is not opened');\n                    return [2 /*return*/];\n            }\n        });\n    });",
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n        var currentUrl;\n        return __generator(this, function (_a) {\n            switch (_a.label) {\n                case 0: return [4 /*yield*/, driver.get('https://angular-e2e.herokuapp.com/')];\n                case 1:\n                    _a.sent();\n                    return [4 /*yield*/, driver.getCurrentUrl()];\n                case 2:\n                    currentUrl = _a.sent();\n                    assert.equal('https://angular-e2e.herokuapp.com/login', currentUrl, 'The website is not opened');\n                    return [2 /*return*/];\n            }\n        });\n    });",
               "err": {},
-              "uuid": "8588c8a3-52f5-4382-869a-fb459c624d4e",
-              "parentUUID": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+              "uuid": "8e15bfff-fe20-4c09-bb98-9b4dfb845c5f",
+              "parentUUID": "f3cef669-a798-4848-a272-da0bd886178e",
               "isHook": false,
               "skipped": false
             },
@@ -94,7 +94,7 @@
               "title": "Open  youtube and verify it is opened",
               "fullTitle": "Suite Open  youtube and verify it is opened",
               "timedOut": false,
-              "duration": 5905,
+              "duration": 5934,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -103,21 +103,21 @@
               "context": null,
               "code": "return __awaiter(void 0, void 0, void 0, function () {\n        var currentUrl;\n        return __generator(this, function (_a) {\n            switch (_a.label) {\n                case 0: return [4 /*yield*/, driver.get('https://www.youtube.com')];\n                case 1:\n                    _a.sent();\n                    return [4 /*yield*/, driver.getCurrentUrl()];\n                case 2:\n                    currentUrl = _a.sent();\n                    assert.equal('https://www.youtube.com/', currentUrl, 'The youtube is not opened');\n                    return [2 /*return*/];\n            }\n        });\n    });",
               "err": {},
-              "uuid": "a8ed18e0-d5fb-41b7-82b7-42bbfb0b2deb",
-              "parentUUID": "ec5df468-082c-4821-ab78-a521cc1abe8e",
+              "uuid": "124cc1f0-466e-4a56-8d77-005da0cf9b9d",
+              "parentUUID": "f3cef669-a798-4848-a272-da0bd886178e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8588c8a3-52f5-4382-869a-fb459c624d4e",
-            "a8ed18e0-d5fb-41b7-82b7-42bbfb0b2deb"
+            "8e15bfff-fe20-4c09-bb98-9b4dfb845c5f",
+            "124cc1f0-466e-4a56-8d77-005da0cf9b9d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 8676,
+          "duration": 12428,
           "root": false,
           "rootEmpty": false,
           "_timeout": 90000

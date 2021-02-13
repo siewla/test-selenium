@@ -17,23 +17,13 @@ describe('Suite', () => {
     driver = new Builder().forBrowser('chrome').build();
   });
 
-  it('Open google and verify it is opened', async () => {
-    await driver.get('https://www.google.com');
+  it('Open website and verify it is opened and redirect to login', async () => {
+    await driver.get('https://angular-e2e.herokuapp.com/');
     const currentUrl = await driver.getCurrentUrl();
     assert.equal(
-      'https://www.google.com/',
+      'https://angular-e2e.herokuapp.com/login',
       currentUrl,
-      'The google is not opened',
-    );
-  });
-  
-  it('Open  youtube and verify it is opened', async () => {
-    await driver.get('https://www.youtube.com');
-    const currentUrl = await driver.getCurrentUrl();
-    assert.equal(
-      'https://www.youtube.com/',
-      currentUrl,
-      'The youtube is not opened',
+      'The website is not opened and redirect',
     );
   });
 
