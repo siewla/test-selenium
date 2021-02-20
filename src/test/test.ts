@@ -47,6 +47,8 @@ describe('Suite', () => {
     const getLoginButton = await driver.findElement(By.id('login'));
 
     await getLoginButton.click();
+    await driver.wait(until.elementLocated(By.className('alert')), 10000);
+
     const getAlertMsg = await driver
       .findElement(By.className('alert'))
       .getText();
@@ -60,7 +62,7 @@ describe('Suite', () => {
 
   it('key in valid email and password', async () => {
     const valid_email = 'admin@mail.com';
-    const valid_password = 'test123';
+    const valid_password = '123';
 
     const getEmailTextField = await driver.findElement(
       By.css('input[formControlName=email]'),
@@ -79,6 +81,7 @@ describe('Suite', () => {
     const getLoginButton = await driver.findElement(By.id('login'));
 
     await getLoginButton.click();
+    await driver.wait(until.urlIs('https://angular-e2e.herokuapp.com/'));
 
     const currentUrl = await driver.getCurrentUrl();
 
