@@ -39,6 +39,6 @@ Next to jump start the [backend](https://angular-e2e-backend.herokuapp.com/custo
 - 'test' script as per below
   >     "test": "mocha -r ts-node/register  --timeout 90000 --exit  -R mochawesome --reporter-options reportDir=ReportDirectory, reportFilename=DemoReport 'src/test/*.ts'"
 - Video of how automation is done.
-  ![Testing](test.gif)
-
-- the [test](https://siewla.github.io/test-selenium/ReportDirectory/mochawesome.html) summary
+  > ![Testing](test.gif)
+- the [test summary report](https://siewla.github.io/test-selenium/ReportDirectory/mochawesome.html)
+  > ![Testing](test.png)
