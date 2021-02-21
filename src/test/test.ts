@@ -181,7 +181,24 @@ describe('Suite', () => {
     );
   });
 
-  //Just add below code to quit the browser.(This will close the all tabs in browser)
+  it('Logout', async () => {
+    const getLogoutButton = await driver.findElement(
+      By.xpath('/html[1]/body[1]/app-root[1]/nav[1]/ul[2]/li[1]/a[1]'),
+    );
+
+    await getLogoutButton.click();
+
+    const getLoginButton = await driver.findElement(By.id('login'));
+    await driver.wait(until.elementLocated(By.id('login')), 10000);
+
+    assert.equal(
+      true,
+      await getLoginButton.isDisplayed(),
+      'Logout Successfully',
+    );
+  });
+
+  // Just add below code to quit the browser.(This will close the all tabs in browser)
   after('After', async () => {
     await driver.quit();
   });
