@@ -4,7 +4,7 @@ import 'chromedriver';
 // ThenableWebDriver: A thenable wrapper around an IWebDriver instance
 // that allows commands to be issued directly.
 // Builder: The Builder class is your one-stop-shop for configuring new WebDriver instances.
-import { Builder, By, ThenableWebDriver, until } from 'selenium-webdriver';
+import { Builder, By, ThenableWebDriver, until, Key } from 'selenium-webdriver';
 import * as assert from 'assert';
 
 describe('Suite', () => {
@@ -18,12 +18,12 @@ describe('Suite', () => {
   });
 
   it('Open website and verify it is opened and redirect to login', async () => {
-    await driver.get('https://angular-e2e.herokuapp.com/login');
-    // await driver.get('http://localhost:4200/login');
+    // await driver.get('https://angular-e2e.herokuapp.com/login');
+    await driver.get('http://localhost:4200/login');
     const currentUrl = await driver.getCurrentUrl();
     assert.equal(
-      'https://angular-e2e.herokuapp.com/login',
-      // 'http://localhost:4200/login',
+      // 'https://angular-e2e.herokuapp.com/login',
+      'http://localhost:4200/login',
       currentUrl,
       'The website is not opened and redirect',
     );
@@ -81,59 +81,65 @@ describe('Suite', () => {
     const getLoginButton = await driver.findElement(By.id('login'));
 
     await getLoginButton.click();
-    await driver.wait(until.urlIs('https://angular-e2e.herokuapp.com/'));
+    await driver.wait(
+      until.urlIs(
+        // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e',
+        'http://localhost:4200/agent/6034725465997a1c3d927c9e',
+      ),
+      15000,
+    );
 
     const currentUrl = await driver.getCurrentUrl();
 
     assert.equal(
-      'https://angular-e2e.herokuapp.com/',
-      // 'http://localhost:4200/',
+      // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e',
+      'http://localhost:4200/agent/6034725465997a1c3d927c9e',
       currentUrl,
       'Valid credentials keyed in and redirect',
     );
   });
 
   it('go to register new customer tab', async () => {
-    const getRegisterLink = await driver.findElement(
-      By.xpath("//a[normalize-space()='Register New Customer']"),
+    const getRegisterButton = await driver.findElement(
+      By.xpath("//button[normalize-space()='Register New Customer']"),
     );
 
-    await getRegisterLink.click();
+    await getRegisterButton.click();
+
+    await driver.wait(
+      until.urlIs(
+        // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e/register',
+        'http://localhost:4200/register/6034725465997a1c3d927c9e',
+      ),
+      10000,
+    );
 
     const currentUrl = await driver.getCurrentUrl();
 
     assert.equal(
-      'https://angular-e2e.herokuapp.com/register',
-      // 'http://localhost:4200/register',
       currentUrl,
+      // 'https://angular-e2e.herokuapp.com/register/6034725465997a1c3d927c9e',
+      'http://localhost:4200/register/6034725465997a1c3d927c9e',
       'Successfuly navigate to register new customer page',
     );
   });
 
-  it('register new customer without agent', async () => {
+  it('register new customer without insurance', async () => {
     const newCustomer = {
       name: 'New Customer',
-      insuranceName: 'New Insurance',
-      // agentName: 'New Agent',
       dateActivated: '18/02/2021',
     };
 
-    const getNameTextField = await driver.findElement(By.css('#name'));
+    await driver.wait(until.elementLocated(By.id('customer-name')), 10000);
 
-    const getInsuranceNameTextField = await driver.findElement(
-      By.css('#insurance-name'),
-    );
-
-    // const getAgentNameTextField = await driver.findElement(
-    //   By.css('#agent-name'),
-    // );
+    const getNameTextField = await driver.findElement(By.css('#customer-name'));
 
     const getDateTextField = await driver.findElement(
       By.css('#date-activated'),
     );
 
     getNameTextField.sendKeys(newCustomer.name);
-    getInsuranceNameTextField.sendKeys(newCustomer.insuranceName);
+    // getInsuranceNameTextField.sendKeys(newCustomer.insuranceName);
     // getAgentNameTextField.sendKeys(newCustomer.agentName);
     getDateTextField.sendKeys(newCustomer.dateActivated);
 
@@ -159,10 +165,10 @@ describe('Suite', () => {
   });
 
   it('register new customer with all valid information', async () => {
-    const getAgentNameTextField = await driver.findElement(
-      By.css('#agent-name'),
+    const getInsuranceNameTextField = await driver.findElement(
+      By.css('#insurance-name'),
     );
-    getAgentNameTextField.sendKeys('new agent');
+    getInsuranceNameTextField.sendKeys('new insurance');
 
     const getRegisterButton = await driver.findElement(
       By.css("button[type='submit']"),
@@ -170,12 +176,18 @@ describe('Suite', () => {
 
     await getRegisterButton.click();
 
-    await driver.wait(until.urlIs('https://angular-e2e.herokuapp.com/'));
+    await driver.wait(
+      until.urlIs(
+        // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e',
+        'http://localhost:4200/agent/6034725465997a1c3d927c9e',
+      ),
+      15000,
+    );
 
     const currentUrl = await driver.getCurrentUrl();
     assert.equal(
-      'https://angular-e2e.herokuapp.com/',
-      // 'http://localhost:4200/',
+      // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e',
+      'http://localhost:4200/agent/6034725465997a1c3d927c9e',
       currentUrl,
       'Valid credentials keyed in and redirect',
     );
