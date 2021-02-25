@@ -8,6 +8,7 @@ import { Builder, By, ThenableWebDriver, until, Key } from 'selenium-webdriver';
 import * as assert from 'assert';
 
 describe('Suite', () => {
+  const agentID = '60372756c9c8ec0015af5f4e';
   // driver is type of ThenableWebDriver
   let driver: ThenableWebDriver;
 
@@ -50,12 +51,12 @@ describe('Suite', () => {
     await driver.wait(until.elementLocated(By.className('alert')), 10000);
 
     const getAlertMsg = await driver
-      .findElement(By.className('alert'))
+      .findElement(By.xpath("//div[contains(text(),'Invalid Email Format')]"))
       .getText();
 
     assert.equal(
       getAlertMsg,
-      'Invalid email or password.',
+      'Invalid Email Format',
       'Wrong credentials keyed in',
     );
   });
@@ -83,8 +84,8 @@ describe('Suite', () => {
     await getLoginButton.click();
     await driver.wait(
       until.urlIs(
-        // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e',
-        'http://localhost:4200/agent/6034725465997a1c3d927c9e',
+        // `https://angular-e2e.herokuapp.com/agent/${agentID}`,
+        `http://localhost:4200/agent/${agentID}`,
       ),
       15000,
     );
@@ -92,8 +93,8 @@ describe('Suite', () => {
     const currentUrl = await driver.getCurrentUrl();
 
     assert.equal(
-      // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e',
-      'http://localhost:4200/agent/6034725465997a1c3d927c9e',
+      // `https://angular-e2e.herokuapp.com/agent/${agentID}`,
+      `http://localhost:4200/agent/${agentID}`,
       currentUrl,
       'Valid credentials keyed in and redirect',
     );
@@ -108,8 +109,8 @@ describe('Suite', () => {
 
     await driver.wait(
       until.urlIs(
-        // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e/register',
-        'http://localhost:4200/register/6034725465997a1c3d927c9e',
+        // `https://angular-e2e.herokuapp.com/register/${agentID}`,
+        `http://localhost:4200/register/${agentID}`,
       ),
       10000,
     );
@@ -118,8 +119,8 @@ describe('Suite', () => {
 
     assert.equal(
       currentUrl,
-      // 'https://angular-e2e.herokuapp.com/register/6034725465997a1c3d927c9e',
-      'http://localhost:4200/register/6034725465997a1c3d927c9e',
+      // `https://angular-e2e.herokuapp.com/register/${agentID}`,
+      `http://localhost:4200/register/${agentID}`,
       'Successfuly navigate to register new customer page',
     );
   });
@@ -139,8 +140,6 @@ describe('Suite', () => {
     );
 
     getNameTextField.sendKeys(newCustomer.name);
-    // getInsuranceNameTextField.sendKeys(newCustomer.insuranceName);
-    // getAgentNameTextField.sendKeys(newCustomer.agentName);
     getDateTextField.sendKeys(newCustomer.dateActivated);
 
     const getRegisterButton = await driver.findElement(
@@ -148,10 +147,6 @@ describe('Suite', () => {
     );
 
     await getRegisterButton.click();
-
-    // await driver.wait(until.urlIs('https://angular-e2e.herokuapp.com/'));
-
-    // const currentUrl = await driver.getCurrentUrl();
 
     const getAlertMsg = await driver
       .findElement(By.className('alert'))
@@ -178,16 +173,16 @@ describe('Suite', () => {
 
     await driver.wait(
       until.urlIs(
-        // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e',
-        'http://localhost:4200/agent/6034725465997a1c3d927c9e',
+        // `https://angular-e2e.herokuapp.com/agent/${agentID}`,
+        `http://localhost:4200/agent/${agentID}`,
       ),
       15000,
     );
 
     const currentUrl = await driver.getCurrentUrl();
     assert.equal(
-      // 'https://angular-e2e.herokuapp.com/agent/6034725465997a1c3d927c9e',
-      'http://localhost:4200/agent/6034725465997a1c3d927c9e',
+      // `https://angular-e2e.herokuapp.com/agent/${agentID}`,
+      `http://localhost:4200/agent/${agentID}`,
       currentUrl,
       'Valid credentials keyed in and redirect',
     );
